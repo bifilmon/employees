@@ -1,0 +1,33 @@
+{%extends 'base.html'%}
+{%block body_block%}
+ <div class="row">
+        <div class="col-2"></div>
+        <div class="col-8">
+            <table class="table">
+                <tr>
+                    <th>EMPLOYEE NAME</th>
+                    <th>DESIGNATION</th>
+                    <th>EXPERIENCE</th>
+                    <th>SALARY</th>
+                </tr>
+                {%for emp in employors%}
+                <tr>
+                    <td>{{emp.employee_name}}
+                    </td>
+                    <td>{{emp.designation}}
+                    </td>
+                    <td>{{emp.experience}}
+                    </td>
+                    <td>{{emp.salary}}
+                    </td>
+                    <td><a href="{%url 'employee_edit' emp.id%}" class="btn btn-dark">Edit</a></td>
+                    <td><a href="{%url 'employees_details' emp.id%}" class="btn btn-primary">view</a></td>
+                    <td><a href="{%url 'employee_delete' emp.id%}" class="btn btn-danger">Delete</a></td>
+                    {%endfor%}
+                </tr>
+
+            </table>
+        </div>
+        <div class="col-2"></div>
+    </div>
+{%endblock%}
